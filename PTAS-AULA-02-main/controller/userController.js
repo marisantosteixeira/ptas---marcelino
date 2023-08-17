@@ -20,10 +20,20 @@ const selectUsers = async (req,res) => {
     try{
         const users = await User.findAll();
         return res.json(users);
+
     } catch (error) {
         console.log(`Erro ao buscar usuarios: $(error)`);
         return null;
     }
+}
+
+const deleteUser = async (req, res) => {
+  const id = req.params;
+  await User.destroy({
+      where:{
+          id:id
+      }
+  })
 }
 
 const findUsers = async (req,res) => {
