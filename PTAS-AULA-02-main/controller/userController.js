@@ -36,6 +36,25 @@ const deleteUser = async (req, res) => {
   })
 }
 
+const updateUser = async (req, res) => {
+  const id = req.params;
+  const {name, password, email} = req.body
+  const transformaId = parseInt(id)
+  await User.update(
+      {
+          name: name,
+          password: password,
+          email: email
+      },
+    { 
+       where: {
+          id:transformaId
+      }
+  }
+  )
+}
+
+
 const findUsers = async (req,res) => {
     const users = await User.findAll();
     try{
