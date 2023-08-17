@@ -83,9 +83,9 @@ const authenticateUser = async (req,res) => {
         expressIn: 86400,
       })
       return res.json({
-    name: isUserAthenticated.name,
-    email: isUserAthenticated.email,
-    token: token
+    name: isAutenticarUser.name,
+    email: isAutenticarUser.email,
+    password: isAutenticarUser.password
       });
     
     
